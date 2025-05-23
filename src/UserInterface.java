@@ -11,10 +11,10 @@ public class UserInterface {
     public void showMenu() {
         System.out.println("");
         System.out.println("Enter command:");
-        System.out.println("1) Show your to do list");
-        System.out.println("2) add to do");
+        System.out.println("1) Show your task list");
+        System.out.println("2) add task");
         System.out.println("3) mark as done");
-        System.out.println("4) remove");
+        System.out.println("4) remove task");
         System.out.println("x) quit");
     }
 
