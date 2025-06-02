@@ -31,7 +31,7 @@ public class ToDoList {
     }
 
     public void markTaskAsDone(int index){
-        this.items.get(index).markIsDone();
+        this.items.get(index).markAsDone();
     }
 
     public void remove(int index){

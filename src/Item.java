@@ -29,7 +29,7 @@ public class Item {
         }
     }
 
-    public void markIsDone(){
+    public void markAsDone(){
         if(!this.isDone) {
             this.isDone = true;
         }
