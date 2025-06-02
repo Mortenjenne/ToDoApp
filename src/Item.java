@@ -12,6 +12,10 @@ public class Item {
         return this.description;
     }
 
+    public void setDescription(String description){
+        this.description = description;
+    }
+
     public boolean isTaskDone(){
         return this.isDone;
     }
