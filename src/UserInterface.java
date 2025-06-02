@@ -10,12 +10,12 @@ public class UserInterface {
 
     public void showMenu() {
         System.out.println("");
-        System.out.println("Enter command:");
+        System.out.println("ToDoApp");
         System.out.println("1) Show your task list");
-        System.out.println("2) add task");
-        System.out.println("3) mark as done");
-        System.out.println("4) remove task");
-        System.out.println("x) quit");
+        System.out.println("2) Add task");
+        System.out.println("3) Mark task as done");
+        System.out.println("4) Remove task");
+        System.out.println("x) Quit");
     }
 
     public String readInput(String message) {

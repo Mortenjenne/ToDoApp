@@ -1,5 +1,9 @@
 Description, Done
-Gøre rent i køkkenet, done
-Smøre madpakker, not done
-Vande blomster, not done
-Købe ind, done
+Gøre rent i køkkenet, true
+Smøre madpakker, true
+Vande blomster, true
+Købe blomster, false
+Købe is, true
+Skrælle gulerødder, true
+test test, true
+test, false

@@ -8,6 +8,18 @@ public class ToDoList {
         this.items = items;
     }
 
+    public List<Item> getItems(){
+        return this.items;
+    }
+
+    public Item getItem(int index){
+        return this.items.get(index);
+    }
+
+    public int size(){
+        return this.items.size();
+    }
+
     public void displayItems(){
         if(!items.isEmpty()) {
             for (int i = 0; i < items.size(); i++){
@@ -27,6 +39,10 @@ public class ToDoList {
     }
 
     public void addTask(String description){
-        this.items.add(new Item(description,false));
+        if(description != null && !description.trim().isEmpty()){
+            this.items.add(new Item(description,false));
+        } else {
+            System.out.println("Task description cannot be empty.");
+        }
     }
 }

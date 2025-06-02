@@ -5,23 +5,23 @@ public class TaskManager {
     private ItemLoader itemLoader;
     private ToDoList toDoList;
     private UserInterface ui;
-    private List<Item> items;
     private boolean appRunning;
     private final String path = "data/todo.csv";
     private final String header = "Description, Done";
 
     public TaskManager() {
         this.itemLoader = new ItemLoader();
-        this.items = itemLoader.loadFile(path);
+        List<Item> items = itemLoader.loadFile(path);
         this.toDoList = new ToDoList(items);
         this.ui = new UserInterface();
+        this.appRunning = true;
     }
 
     public void start(){
-        appRunning = true;
+
         while (appRunning){
          ui.showMenu();
-         String input = ui.readInput("Awaiting command");
+         String input = ui.readInput("Awaiting command...");
 
          switch (input){
              case "1":
@@ -40,7 +40,7 @@ public class TaskManager {
                  quit();
                  break;
              default:
-                 ui.printMessage("Didnt recognize this command, try again");
+                 ui.printMessage("Didnt recognize this command, try again.");
                  break;
          }
         }
@@ -51,8 +51,13 @@ public class TaskManager {
     }
 
     private void addToDo() {
-        String input = ui.readInput("Add a task, by writing a description");
-        toDoList.addTask(input);
+        String input = ui.readInput("Add a task, by writing a description.");
+        if (input == null || input.trim().isEmpty()) {
+            ui.printMessage("Task description cannot be empty. Try again.");
+        } else {
+            toDoList.addTask(input);
+            ui.printMessage("Task added.");
+        }
     }
 
     private void markToDoAsDone() {
@@ -70,22 +75,22 @@ public class TaskManager {
         int index = ui.promptNumeric("Which task should be removed (give the number)");
         index --;
         if(isValidTaskNumber(index)){
+            ui.printMessage("Removed task: " + toDoList.getItem(index).getDescription());
             toDoList.remove(index);
         }
-
     }
 
     private void quit() {
-        ui.printMessage("Thank you");
-        itemLoader.saveData(this.items,this.path,this.header);
+        ui.printMessage("Thank you for using ToDoApp");
+        itemLoader.saveData(toDoList.getItems(),this.path,this.header);
         appRunning = false;
     }
 
     private boolean isValidTaskNumber(int index){
-        if(index >= 0 && index < this.items.size()){
+        if(index >= 0 && index < toDoList.size()){
             return true;
         } else {
-            ui.printMessage("Invalid task number, try again");
+            ui.printMessage("Invalid task number. Please enter a number between 1 and " + toDoList.size());
             return false;
         }
     }
