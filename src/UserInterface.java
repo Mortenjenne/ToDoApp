@@ -43,5 +43,4 @@ public class UserInterface {
         }
         return numberInput;
     }
-
 }

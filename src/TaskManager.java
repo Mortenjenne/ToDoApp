@@ -67,7 +67,6 @@ public class TaskManager {
         if(isValidTaskNumber(index)){
             toDoList.markTaskAsDone(index);
         }
-
     }
 
     private void removeToDo(){
