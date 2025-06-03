@@ -16,6 +16,20 @@ class ToDoListTest {
     }
 
     @Test
+    public void testToStringNotDone(){
+        String expected = "Løb en tur, not done";
+        assertEquals(expected,toDoList.getItem(1).toString());
+    }
+
+    @Test
+    public void testToStringDone(){
+        String expected = "Løb en tur, done";
+        toDoList.markTaskAsDone(1);
+        assertEquals(expected,toDoList.getItem(1).toString());
+
+    }
+
+    @Test
     public void testGetItems() {
         assertEquals(2, toDoList.getItems().size());
     }
